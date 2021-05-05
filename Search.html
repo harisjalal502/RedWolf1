@@ -1,0 +1,188 @@
+<html>
+
+<head>
+	<title>Test IP Address Page</title>
+	<link rel="stylesheet" href="css/styleSheet1.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<script src="./js/jquery.table2excel.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="./js/datatables/datatables.min.css"/>
+	<script type="text/javascript" src="./js/datatables/datatables.min.js"></script>
+	<style>
+	#downloadData
+	{
+	display:none;
+	}
+	#table2excel_wrapper .row .col-sm-12
+	{
+	overflow-x: auto;margin: 0px;padding: 0px;
+	}
+	</style>
+</head>
+
+<body>
+	<img id="LogoPic" src="Images/Logo.png" style="width:128px;height:128px;">
+	<div id="center">
+		<h1>RedWolf</h1>
+	</div>
+	<br><br><br><br>
+	
+	<ul>
+		<li><a class="active" href="Redwolf.html">Home</a></li>
+		<li><a href="Tracker.html">Tracker</a></li>
+		<li><a href="About.html">About</a></li>
+		<li><a href="#Executive">Executive Summary</a></li>
+		<li><a href="Search.html">Search Database</a></li>
+	</ul>
+	
+	<div id="center">
+		<h1>Welcome to the database! Here you can filter individual and query all security risks and find more information
+		about individual CVE's and CWE's.</h1>
+	</div>
+	
+	<br><br><br><br>
+	<button id="loaderData">Load Data</button>
+	<button id="downloadData" class=" ">Download Data</button>
+	<button id="columns">Filter Columns</button>
+	
+	<div id="filterRow">
+		<input type="text" id="IP-input" value="IP"></input>
+		<input type="text" id="Port-input" value="Port"></input>
+		<input type="text" id="CVE-ID" value="CVE"></input>
+		<select name="subject" id="CVSS">
+				<option value="" selected="selected">CVSS</option>
+				<option value="">0-2.5</option>
+				<option value="">2.51-5</option>
+				<option value="">5.01-7.5</option>
+				<option value="">7.51-10</option>
+		</select>
+		<select name="subject" id="conf">
+			<option value="" selected="selected">Confidentiality</option>
+			<option value="">None</option>
+			<option value="">Partial</option>
+			<option value="">Complete</option>
+		</select>
+		<select name="subject" id="Integ">
+			<option value="" selected="selected">Integrity</option>
+			<option value="">None</option>
+			<option value="">Partial</option>
+			<option value="">Complete</option>
+		</select>
+		<select name="subject" id="Avail">
+			<option value="" selected="selected">Availability</option>
+			<option value="">None</option>
+			<option value="">Partial</option>
+			<option value="">Complete</option>
+		</select>
+		<select name="subject" id="Complex">
+			<option value="" selected="selected">Complexity</option>
+			<option value="">Low</option>
+			<option value="">Medium</option>
+			<option value="">High</option>
+		</select>
+		<select name="subject" id="Authen">
+			<option value="" selected="selected">Authentication</option>
+			<option value="">Not Required</option>
+			<option value="">Single System</option>
+			<option value="">Multiple Systems</option>
+		</select>
+		<select name="subject" id="Gained">
+			<option value="" selected="selected">Gained Access</option>
+			<option value="">None</option>
+			<option value="">Admin</option>
+			<option value="">User</option>
+		</select>
+		<input type="text" id="CWE-ID" value="CWE"></input>
+		<input type="text" id="Exploit" value="Exploits"></input>
+		<select name="subject" id="Meta">
+			<option value="" selected="selected">MetaSploit</option>
+			<option value="">True</option>
+			<option value="">False</option>
+		</select>
+	</div>
+	
+	<div id="tablemaker" class="col-xs-12"  style="margin-top:10px">
+  
+	</div>
+</body>
+
+</html>
+
+<script>
+ 
+	$(document).ready(function(){
+  				
+
+		$('#loaderData').click(function(){
+			$.ajax({
+				url:"Sources/final_set3.csv?i=2",
+				dataType:"text",
+				success:function(data){
+					var col_length=0;
+					var lineItem = data.split(/\r?\n|\r/);
+					var tableData = '<table  id="table2excel" style="overflow-x: auto;margin: 0px;padding: 0px;" class="display table table-bordered table-striped col-xs-12" data-tableName="Test Table 3">';
+					for(var i=0; i<lineItem.length; i++){
+						var cellData = lineItem[i].split(",");
+						if(col_length==0){col_length=cellData.length;}
+						if(i === 0){
+						tableData += '<thead><tr>';
+						}
+						else
+						{
+						tableData += '<tr>';
+						}
+						if(col_length==cellData.length)
+						{
+						for(var j=0; j<cellData.length; j++){
+						
+							if(i === 0){
+								tableData += '<th>' + cellData[j] + '</th>';
+							}
+							else{
+							if(cellData[j] == null || cellData[j] === undefined || cellData[j] == "")
+								{tableData += '<td></td>'}
+							else{tableData += '<td>' + cellData[j] + '</td>';}
+							}
+						}
+						}// length check
+						if(i === 0){
+						tableData += '</tr></thead><tbody>';
+						}
+						else
+						{
+						tableData += '</tr>';
+						}
+					}
+					tableData += '</tbody></table> ';
+					$('#tablemaker').html(tableData);
+					 
+						$('#table2excel').DataTable();
+						
+						 
+				}
+			});
+			$("#downloadData").show();
+		});
+	
+	
+					$("#downloadData").click(function(e){ 
+					var table = $('#table2excel');
+					if(table && table.length){  
+						var preserveColors = (table.hasClass('table2excel_with_colors') ? true : false);
+						$(table).table2excel({
+							exclude: ".noExl",
+							name: "Excel Document Name",
+							filename: "myFileName" + new Date().toISOString().replace(/[\-\:\.]/g, "") + ".xls",
+							fileext: ".xls",
+							exclude_img: true,
+							exclude_links: true,
+							exclude_inputs: true,
+							preserveColors: preserveColors
+						});
+					}
+				});
+				
+	});				
+		 
+</script>

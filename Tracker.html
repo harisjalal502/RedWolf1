@@ -1,0 +1,121 @@
+<html>
+
+<head>
+	<title>Tracker</title>
+	<link rel="stylesheet" href="css/styleSheet1.css">
+</head>
+
+<body>
+	<img id="LogoPic" src="Images/Logo.png" style="width:128px;height:128px;">
+	<div id="center">
+		<h1>RedWolf</h1>
+	</div>
+	<br><br><br><br>
+
+	<ul>
+		<li><a class="active" href="Redwolf.html">Home</a></li>
+		<li><a href="Tracker.html">Tracker</a></li>
+		<li><a href="About.html">About</a></li>
+		<li><a href="#Executive">Executive Summary</a></li>
+		<li><a href="Search.html">Search Database</a></li>
+	</ul>
+
+	<br><br><br><br>
+
+	<ul>
+		<li><a class="active" href="#CVSS">CVSS</a></li>
+		<li><a href="#CWE">CWE ID</a></li>
+		<li><a href="#Access">Access Complexity</a></li>
+		<li><a href="#Integrity">Integrity Impact</a></li>
+		<li><a href="#Metasploit">Metasploit</a></li>
+	</ul>
+
+	<br><br><br><br>
+
+	<div id="Dashboard">
+		<div>
+			<div id="center">
+				<h1>CVSS</h1>
+			</div>
+			<div id="tableau">
+				<img src="Images/Tableau Pics/Circles.png" alt="Edge1" style="width:100%;height:500px;">
+			</div>
+			<div id="tableauText">
+				<p>This dashboard shows valued CVSS scores of each CVE. The size of each circle corresponds to its
+				associated number of occurences. For enlargement, click the image. To see the raw data, click <a href="#CVSSDat">here</a>.
+				</p>
+			</div>
+		</div>
+		
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		
+		<div id="CWE">
+			<div id="center">
+				<h1>CWE ID</h1>
+			</div>
+			<div id="tableauText">
+				<p>This dashboard shows the most common CWE IDs that appear as threats, with a filter for the top 
+				21 highest occurences. For enlargement, click the image. To see the raw data, click <a href="#CVSSDat">here</a>.
+				</p>
+			</div>
+			<div id="tableau">
+				<img src="Images/Tableau Pics/CWE.png" alt="Edge1" style="width:100%;height:500px;">
+			</div>
+		</div>
+		
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		
+		<div id="Access">
+			<div id="center">
+				<h1>Access Complexity</h1>
+			</div>
+			<div id="tableau">
+				<img src="Images/Tableau Pics/PieChart.png" alt="Edge1" style="width:100%;height:500px;">
+			</div>
+			<div id="tableauText">
+				<p>This dashboard shows the percentage of CVE ID's that have certain Access Complexities,
+				ordered by, low, medium, and high. For enlargement, click the image. To see the raw data, click <a href="#CVSSDat">here</a>.
+				</p>
+			</div>
+		</div>
+		
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		
+		<div id="Integrity">
+			<div id="center">
+				<h1>Integrity Impact</h1>
+			</div>
+			<div id="tableauText">
+				<p>This dashboard shows the percentage breakdown of attacks that account for no, partial, or complete
+				impact on the integrity of the system. For enlargement, click the image. To see the raw data, click <a href="#CVSSDat">here</a>.
+				</p>
+			</div>
+			<div id="tableau">
+				<img src="Images/Tableau Pics/PieChart2.png" alt="Edge1" style="width:100%;height:500px;">
+			</div>
+		</div>
+		
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		
+		<div id="Metasploit">
+			<div id="center">
+				<h1>Metasploit</h1>
+			</div>
+			<div id="tableau">
+				<img src="Images/Tableau Pics/Metasploit.png" alt="Edge1" style="width:100%;height:1000px;">
+			</div>
+			<div id="tableauText">
+				<p>This dashboard shows the number of hostnames that occupy a lot of metasploit
+				information, with the count of the number of occurences in the final column. For enlargement, click the image. To see the raw data, click <a href="#CVSSDat">here</a>.
+				</p>
+			</div>
+		</div>
+	</div>
+	
+</body>
+
+</html>

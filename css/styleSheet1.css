@@ -1,0 +1,190 @@
+#bodyfull {
+	
+}
+
+html {
+	scroll-behavior: smooth;
+	background-color : rgb(200, 200, 200);
+}
+
+body {
+	scroll-behavior: smooth;
+	background-color : rgb(200, 200, 200);
+}
+
+#center {
+	text-align: center;
+	color: rgb(200, 0, 0);
+	font-size: 20px;
+}
+
+#center2 {
+	padding-left = 50px;
+	color: rgb(200, 0, 0);
+	margin-left: 100px;
+	margin-right: 100px;
+	text-align: center;
+	border-style: groove none groove none;
+	border-color: black;
+	font-size: 20px;
+}
+
+#LogoPic {
+	float: left;
+}
+
+#filters {
+	padding-left: 50px;
+}
+
+#buttonsubmit {
+	margin-right: 200px;
+	margin-left: 1200px;
+	background-color: #333;
+	color: white;
+	border-style: groove;
+	border-color: black;
+	color: rbg(200, 0, 0);
+	width: 150px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  border-style: none groove none none;
+  border-color: rgb(200, 0, 0);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #222;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+#pictures::after {
+	content: "";
+	clear: both;
+	display: table;
+}
+
+#pic {
+	float: left;
+	width: 30%;
+	margin-left: 200px;
+	padding: 50px;
+	height: 400px;
+}
+
+#tableau {
+	float: left;
+	width: 40%;
+	padding: 25px;
+	margin-left: 100px;
+	height: 500px;
+}
+
+#tableauText {
+	float: left;
+	text-align: center;
+	width: 40%;
+	padding: 25px;
+	margin-left: 100px;
+	font-size: 24px;
+	line-height: 50px;
+	text-align: center;
+	display: inline-block;
+}
+
+#borderblack {
+	border-style: groove;
+	border-color: black;
+}
+
+#filterRow {
+	width: 100%;
+}
+
+#IP-input {
+	width: 100px;
+}
+
+#Port-input {
+	width: 75px;
+}
+
+#CVE-ID {
+	width: 75px;
+}
+
+#CVSS {
+	width: 100px;
+}
+
+#conf {
+	width: 200px;
+}
+
+#Integ {
+	width: 200px;
+}
+
+#avail {
+	width: 200px;
+}
+
+#Complex {
+	width: 200px;
+}
+
+#Authen {
+	width: 200px;
+}
+
+#Gained {
+	width: 200px;
+}
+
+#CWE-ID {
+	width: 100px;
+}
+
+#Exploit {
+	width: 100px;
+}
+
+#Meta {
+	width: 100px;
+}
+
+select {
+	height: 26px;
+}
